@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/* ───────── custom animations & extras ───────── */
+@layer utilities {
+  /* ambient drift & pulse */
+  @keyframes float-slow   {0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
+  @keyframes float-fast   {0%{transform:translateY(0)}50%{transform:translateY(-40px)}100%{transform:translateY(0)}}
+  @keyframes pulse-slow   {0%,100%{opacity:.25}50%{opacity:.4}}
+  @keyframes spin-slower  {from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+  /* section reveal */
+  @keyframes fade-up      {0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:translateY(0)}}
+
+  .animate-float-slow   {animation:float-slow 12s ease-in-out infinite}
+  .animate-float-fast   {animation:float-fast  7s ease-in-out infinite}
+  .animate-pulse-slow   {animation:pulse-slow 10s ease-in-out infinite}
+  .animate-spin-slower  {animation:spin-slower 60s linear infinite}
+
+  .reveal               {animation:fade-up 0.9s cubic-bezier(.4,0,.2,1) both}
+}
