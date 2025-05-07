@@ -1,24 +1,58 @@
 @import "tailwindcss";
 
-/* You can add custom base styles or utilities here if needed later */
-
 @layer base {
-  /* Example: Define a default link style if desired */
-  /* a {
-    @apply text-indigo-600 hover:text-indigo-800;
-  } */
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-slate-50 text-gray-700 antialiased; /* Base styles from body tag */
+  }
 }
 
 @layer components {
-  /* Example: Define a custom button component */
+  /* You can define reusable component styles here if needed */
   /* .btn-primary {
-    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+    @apply py-2 px-4 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-opacity-75;
   } */
 }
 
 @layer utilities {
-  /* Add any custom utility classes if necessary */
-  /* .custom-utility {
-    property: value;
-  } */
+  .reveal-fade-up, .reveal-fade-right, .reveal-fade-left {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-duration: 0.8s;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* EaseOutBack-like */
+  }
+
+  .reveal-fade-up {
+    transform: translateY(40px);
+  }
+  .reveal-fade-right {
+    transform: translateX(-40px);
+  }
+  .reveal-fade-left {
+    transform: translateX(40px);
+  }
+
+  .revealed {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+
+  /* For the animated gradient text, if you decide to use it */
+  .animated-gradient-text {
+      background-image: linear-gradient(to right, theme('colors.indigo.600'), theme('colors.purple.600'), theme('colors.pink.600'));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradient-flow 5s ease-in-out infinite;
+      background-size: 200% 200%; /* Important for the animation to have room to move */
+  }
+
+  @keyframes gradient-flow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+  }
 }
