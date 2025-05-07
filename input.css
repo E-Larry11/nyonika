@@ -1,20 +1,24 @@
 @import "tailwindcss";
 
-/* ───────── custom animations & extras ───────── */
+/* You can add custom base styles or utilities here if needed later */
+
+@layer base {
+  /* Example: Define a default link style if desired */
+  /* a {
+    @apply text-indigo-600 hover:text-indigo-800;
+  } */
+}
+
+@layer components {
+  /* Example: Define a custom button component */
+  /* .btn-primary {
+    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  } */
+}
+
 @layer utilities {
-  /* ambient drift & pulse */
-  @keyframes float-slow   {0%{transform:translateY(0)}50%{transform:translateY(-20px)}100%{transform:translateY(0)}}
-  @keyframes float-fast   {0%{transform:translateY(0)}50%{transform:translateY(-40px)}100%{transform:translateY(0)}}
-  @keyframes pulse-slow   {0%,100%{opacity:.25}50%{opacity:.4}}
-  @keyframes spin-slower  {from{transform:rotate(0)}to{transform:rotate(360deg)}}
-
-  /* section reveal */
-  @keyframes fade-up      {0%{opacity:0;transform:translateY(40px)}100%{opacity:1;transform:translateY(0)}}
-
-  .animate-float-slow   {animation:float-slow 12s ease-in-out infinite}
-  .animate-float-fast   {animation:float-fast  7s ease-in-out infinite}
-  .animate-pulse-slow   {animation:pulse-slow 10s ease-in-out infinite}
-  .animate-spin-slower  {animation:spin-slower 60s linear infinite}
-
-  .reveal               {animation:fade-up 0.9s cubic-bezier(.4,0,.2,1) both}
+  /* Add any custom utility classes if necessary */
+  /* .custom-utility {
+    property: value;
+  } */
 }

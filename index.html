@@ -4,147 +4,227 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nyonika – Aspiring Physician</title>
-  <link rel="icon" type="image/png" href="images/evilLarry.png">
+  <!-- You can create a new favicon if you wish -->
+  <!-- <link rel="icon" type="image/png" href="images/nyonika-favicon.png"> -->
   <link rel="stylesheet" href="output.css">
   <style>
-    /* hero card tilt via CSS variable (updated in JS) */
-    :root { --tiltX: 0deg; --tiltY: 0deg;}
-    #heroCard { transform: perspective(800px) rotateX(var(--tiltX)) rotateY(var(--tiltY)); }
+    /* Basic styling for placeholder lines and icons if not using SVGs directly */
+    .placeholder-line { height: 10px; background-color: #e5e7eb; margin-bottom: 8px; }
+    .placeholder-line-short { width: 60%; }
+    .placeholder-line-long { width: 90%; }
+    .icon-placeholder {
+      width: 40px; height: 40px;
+      border: 1px solid #9ca3af;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; color: #6b7280;
+      margin-right: 16px; /* For career goals */
+    }
+    .experience-box {
+      width: 80px; height: 80px;
+      border: 1px solid #9ca3af;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; color: #9ca3af;
+      flex-shrink: 0;
+    }
+    .contact-circle {
+      width: 30px; height: 30px;
+      border: 1px solid #9ca3af;
+      border-radius: 50%;
+    }
+    /* Simple sketch for Nyonika image placeholder */
+    .nyonika-sketch-placeholder {
+      width: 150px; height: 180px; /* Adjust as needed */
+      border: 1px solid #9ca3af;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #6b7280;
+      background-color: #f9fafb; /* Light gray background for placeholder */
+      padding: 10px;
+      /* You can replace this div with your actual <img src="path/to/nyonika_sketch.png" alt="Nyonika"> */
+    }
+    .section-divider {
+      border-top: 1px solid #d1d5db; /* Tailwind gray-300 */
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
   </style>
 </head>
 
-<body class="bg-gray-900 text-gray-100 font-sans antialiased selection:bg-purple-600 selection:text-white">
+<body class="bg-white text-gray-800 font-sans antialiased">
 
-  <!-- ───── gradient backdrop + nebula blobs ───── -->
-  <div class="fixed inset-0 -z-20 bg-gradient-to-br from-gray-900 via-purple-950 to-gray-900"></div>
+  <main class="max-w-3xl mx-auto px-6 py-12 space-y-8 md:space-y-10">
 
-  <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-    <div class="absolute -left-32 top-1/4  w-80 h-80 bg-purple-800 opacity-20 rounded-full blur-[120px] animate-spin-slower"></div>
-    <div class="absolute right-[-4rem] top-1/2 w-96 h-96 bg-purple-700 opacity-25 rounded-full blur-[140px] animate-spin-slower"></div>
+    <!-- Header Section -->
+    <section class="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
+      <!-- Nyonika Sketch Placeholder -->
+      <!-- IMPORTANT: Replace this div with your actual image:
+           <img src="path/to/your/nyonika_sketch.jpg" alt="Nyonika" class="w-36 h-auto md:w-48">
+      -->
+      <div class="nyonika-sketch-placeholder">
+        Your Nyonika<br>Sketch Here
+      </div>
 
-    <!-- floating particles -->
-    <template id="bubbleTemplate">
-      <div class="absolute bottom-0 w-3 h-3 bg-purple-400/60 rounded-full blur-[2px] animate-float-fast"></div>
-    </template>
-  </div>
-
-  <!-- ───── main glass card ───── -->
-  <main id="heroCard"
-        class="relative max-w-3xl mx-auto px-8 py-16 space-y-16
-               bg-white/5 backdrop-blur-md rounded-3xl border border-white/10 shadow-2xl
-               transition-transform duration-150 will-change-transform">
-
-    <!-- Hero -->
-    <section class="flex flex-col items-center text-center space-y-5 reveal">
-      <img src="images/evilLarry.png" alt="Portrait of Nyonika"
-           class="w-40 h-40 rounded-full border-4 border-purple-500 shadow-xl object-cover">
-      <h1 class="text-5xl font-extrabold text-purple-400 drop-shadow-lg">Nyonika</h1>
-      <p class="text-xl text-gray-300 max-w-md">
-        Aspiring Medical Student&nbsp;
-      </p>
+      <div class="text-center md:text-left">
+        <h1 class="text-4xl font-bold text-gray-900">NYONIKA</h1>
+        <p class="text-lg font-semibold text-gray-700 mt-1">
+          ASPIRING PHYSICIAN &<br class="md:hidden"> ADVOCATE FOR MENTAL HEALTH
+        </p>
+        <p class="text-sm text-gray-600 mt-3">
+          Bridging science and compassion to heal communities.
+        </p>
+        <button class="mt-4 px-6 py-2 border border-gray-700 text-gray-700 rounded-md hover:bg-gray-100 transition">
+          Explore My Journey
+        </button>
+      </div>
     </section>
 
-    <!-- About -->
-    <section class="reveal">
-      <h2 class="text-3xl font-semibold text-purple-300 border-b border-gray-700 pb-2 mb-6">About Me</h2>
-      <p class="leading-relaxed text-gray-200">
-        I’m a dedicated learner fascinated by the intersection of science and humanity.
-        From volunteering in hospitals to leading campus health initiatives,
-        every step affirms my resolve to serve as a physician who heals with knowledge <em>and</em> heart.
-      </p>
+    <div class="section-divider"></div>
+
+    <!-- About Me Section -->
+    <section class="grid md:grid-cols-2 gap-8 items-start">
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">About Me</h2>
+        <div class="space-y-2">
+          <div class="placeholder-line placeholder-line-long"></div>
+          <div class="placeholder-line placeholder-line-long"></div>
+          <div class="placeholder-line"></div>
+          <div class="placeholder-line placeholder-line-short"></div>
+        </div>
+        <p class="text-sm text-gray-700 mt-4">
+          Driven by a passion for understanding the human mind and body, I am committed to a path of lifelong learning and service in medicine. My journey is fueled by a desire to make tangible differences in people's lives, especially within mental health.
+        </p>
+      </div>
+      <!-- Placeholder for graph/image -->
+      <div class="w-full h-48 border border-gray-400 bg-gray-50 flex items-center justify-center text-gray-500">
+        <svg width="80%" height="80%" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-gray-400">
+          <path d="M5 55 L20 55 L20 40 L35 40 L35 55 L50 55 L50 30 L65 30 L65 55 L80 55 L80 20 L95 20 L95 55" stroke="currentColor" stroke-width="1" fill="rgba(0,0,0,0.05)"/>
+          <path d="M5 55 L95 55 M5 5 L5 55" stroke="currentColor" stroke-width="0.5"/>
+          <path d="M12 45 L27 30 L42 40 L58 22 L72 35 L88 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
     </section>
 
-    <!-- Goals -->
-    <section class="reveal">
-      <h2 class="text-3xl font-semibold text-purple-300 border-b border-gray-700 pb-2 mb-6">Career Goals</h2>
-      <p class="leading-relaxed text-gray-200">
-        My dream is to join a medical program that values community outreach and mental‑health advocacy.
-        Long‑term, I envision blending primary care, equity‑focused research, and mentoring the next generation
-        of compassionate clinicians.
-      </p>
+    <div class="section-divider"></div>
+
+    <!-- Career Goals Section -->
+    <section>
+      <h2 class="text-2xl font-semibold text-gray-800 mb-6">Career Goals</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="flex items-start">
+          <!-- Heart Icon -->
+          <svg class="w-8 h-8 text-gray-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+          <div>
+            <div class="placeholder-line w-full"></div>
+            <div class="placeholder-line placeholder-line-short"></div>
+            <p class="text-xs text-gray-600 mt-1">Focus on compassionate patient care.</p>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <!-- Caduceus Icon -->
+          <svg class="w-8 h-8 text-gray-600 mr-3 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 6v12m-4-6h8"/>
+            <path d="M16.5 9.5s-1.5-2-4.5-2-4.5 2-4.5 2"/>
+            <path d="M16.5 14.5s-1.5 2-4.5 2-4.5-2-4.5-2"/>
+            <path d="M7 20l-2-4h14l-2 4"/>
+            <path d="M12 4V2M12 22v-2"/>
+          </svg>
+          <div>
+            <div class="placeholder-line w-full"></div>
+            <div class="placeholder-line placeholder-line-short"></div>
+            <p class="text-xs text-gray-600 mt-1">Contribute to medical research and innovation.</p>
+          </div>
+        </div>
+        <div class="flex items-start">
+          <!-- Brain Icon -->
+          <svg class="w-8 h-8 text-gray-600 mr-3 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.5 12.5c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S7.448 11 8 11s1 .672 1 1.5zM15.5 12.5c0 .828-.448 1.5-1 1.5s-1-.672-1-1.5S13.448 11 14 11s1 .672 1 1.5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.871 12.078c.257-.98.965-1.781 1.885-2.295C7.923 9.173 9.39 9 11 9c2.825 0 5.312.866 6.243 2.783.187.38.33.78.42 1.182.152.677.237 1.373.237 2.035 0 2.892-1.657 5.35-4.311 6.438C12.493 21.797 10.36 22 9 22c-2.198 0-4.205-.54-5.851-1.632A7.948 7.948 0 014 15c0-1.01.187-1.98.529-2.844L4.87 12.078zM12 9V5m0-2v2"></path></svg>
+          <div>
+            <div class="placeholder-line w-full"></div>
+            <div class="placeholder-line placeholder-line-short"></div>
+            <p class="text-xs text-gray-600 mt-1">Advocate for mental health awareness.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Academics -->
-    <section class="reveal">
-      <h2 class="text-3xl font-semibold text-purple-300 border-b border-gray-700 pb-2 mb-6">Academics</h2>
-      <ul class="list-disc list-inside space-y-2 text-gray-200">
-        <li><strong>GPA:</strong> 3.90&nbsp;/&nbsp;4.00</li>
-        <li><strong>MCAT:</strong> 512 &nbsp;(129&nbsp;/128&nbsp;/130&nbsp;/128)</li>
-        <li><strong>Major:</strong> Neuroscience
-      </ul>
+    <div class="section-divider"></div>
+
+    <!-- Academics & Experience Section -->
+    <section class="grid md:grid-cols-2 gap-8">
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Academics</h2>
+        <div class="space-y-3">
+          <div class="flex items-center">
+            <span class="w-16 font-medium text-gray-700">GPA</span>
+            <div class="placeholder-line flex-1 ml-2 max-w-xs"></div>
+          </div>
+          <p class="text-sm text-gray-600 ml-[72px]">3.90 / 4.00</p>
+          <div class="flex items-center">
+            <span class="w-16 font-medium text-gray-700">MCAT</span>
+            <div class="placeholder-line flex-1 ml-2 max-w-xs"></div>
+          </div>
+          <p class="text-sm text-gray-600 ml-[72px]">515 (CP: 129, CARS: 128, BB: 130, PS: 128)</p>
+          <div class="flex items-center">
+            <span class="w-16 font-medium text-gray-700">Major</span>
+            <div class="placeholder-line flex-1 ml-2 max-w-xs"></div>
+          </div>
+          <p class="text-sm text-gray-600 ml-[72px]">B.S. in Neuroscience, Minor in Psychology</p>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Experience</h2>
+        <div class="flex space-x-2">
+          <div class="experience-box">X</div>
+          <div class="experience-box">X</div>
+          <div class="experience-box">X</div>
+          <div class="flex-1 space-y-2 ml-2">
+            <div class="placeholder-line h-[18px]"></div>
+            <div class="placeholder-line h-[18px]"></div>
+            <div class="placeholder-line h-[18px]"></div>
+            <div class="placeholder-line h-[18px] w-1/2"></div>
+          </div>
+        </div>
+         <ul class="list-disc list-inside space-y-1 text-sm text-gray-700 mt-3 pl-1">
+            <li>Clinical Volunteer @ City Hospital</li>
+            <li>Research Assistant @ Neuro Lab</li>
+            <li>Mental Health Initiative Lead</li>
+        </ul>
+      </div>
     </section>
 
-    <!-- Experience -->
-    <section class="reveal">
-      <h2 class="text-3xl font-semibold text-purple-300 border-b border-gray-700 pb-2 mb-6">Experience</h2>
-      <ul class="space-y-6 text-gray-200">
-        <li>
-          <strong class="text-purple-200">Clinical Volunteer – City Hospital</strong><br>
-          Assisted nurses in outpatient clinics, streamlined patient intake, and shadowed physicians in pediatrics &amp; internal medicine.
-        </li>
-        <li>
-          <strong class="text-purple-200">Research Assistant – Neuroscience Lab</strong><br>
-          Investigated neuroplasticity in stress adaptation; co‑authored a poster presented at the State Undergraduate Symposium.
-        </li>
-        <li>
-          <strong class="text-purple-200">Peer Mentor – First‑Year Success Program</strong><br>
-          Guided freshmen through academic planning and wellness, fostering a supportive campus community.
-        </li>
-      </ul>
+    <div class="section-divider"></div>
+
+    <!-- Contact Section -->
+    <section>
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contact</h2>
+      <div class="flex flex-col md:flex-row md:items-center md:space-x-6 space-y-4 md:space-y-0">
+        <div class="flex-grow space-y-3">
+          <input type="text" placeholder="Name" class="w-full p-2 border border-gray-400 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-transparent outline-none">
+          <input type="email" placeholder="Email" class="w-full p-2 border border-gray-400 rounded-md focus:ring-2 focus:ring-gray-500 focus:border-transparent outline-none">
+        </div>
+        <button class="px-8 py-2.5 border border-gray-700 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition md:self-start">
+          Send
+        </button>
+        <div class="flex space-x-3 items-center md:pl-4">
+          <div class="contact-circle"></div>
+          <div class="contact-circle"></div>
+          <div class="contact-circle"></div>
+          <!-- You can replace these with actual social media icons/links -->
+        </div>
+      </div>
     </section>
 
-    <!-- Contact -->
-    <!-- <section class="pt-4 text-center reveal"> -->
-      <!-- <a href="mailto:nyonika@example.com" -->
-         <!-- class="inline-block mt-2 px-8 py-3 rounded-full bg-purple-600/80 hover:bg-purple-600 -->
-                <!-- text-gray-100 font-semibold shadow-lg backdrop-blur-sm transition"> -->
-        <!-- Get in Touch -->
-      <!-- </a> -->
-    <!-- </section> -->
   </main>
 
-  <!-- ───── interaction JS ───── -->
+  <footer class="text-center py-8 text-sm text-gray-500">
+    <p>© <span id="currentYear"></span> Nyonika. All rights reserved.</p>
+  </footer>
+
   <script>
-    /* tilt hero card on mouse move */
-    const card = document.getElementById('heroCard');
-    document.addEventListener('mousemove', ({clientX: x, clientY: y}) => {
-      const {innerWidth: w, innerHeight: h} = window;
-      const rotateY =  (x - w/2) / (w/2) * 8;   // ±8°
-      const rotateX = -(y - h/2) / (h/2) * 8;
-      document.documentElement.style.setProperty('--tiltX', rotateX + 'deg');
-      document.documentElement.style.setProperty('--tiltY', rotateY + 'deg');
-    });
-
-    /* section reveal on scroll */
-    const observer = new IntersectionObserver(entries =>
-      entries.forEach(e => e.isIntersecting && e.target.classList.add('opacity-100')),
-      {threshold: 0.15});
-    document.querySelectorAll('.reveal').forEach(s => {
-      s.classList.add('opacity-0'); observer.observe(s);
-    });
-
-    /* spawn extra bubbles for richness */
-    const tmpl = document.getElementById('bubbleTemplate').content;
-    /* 1️⃣  spawn more bubbles at page‑load — change 20 ➜ 60 (or higher) */
-for (let i = 0; i < 60; i++) {            // ← was 20
-  const b = tmpl.cloneNode(true).firstElementChild;
-  b.style.left  = Math.random() * 100 + '%';
-  b.style.width = b.style.height = (2 + Math.random() * 6) + 'px';
-  b.style.animationDelay = (Math.random() * 6) + 's';
-  document.body.appendChild(b);
-}
-
-/* 2️⃣  keep sprinkling new bubbles continuously */
-setInterval(() => {
-  const b = tmpl.cloneNode(true).firstElementChild;
-  b.style.left  = Math.random() * 100 + '%';
-  b.style.width = b.style.height = (2 + Math.random() * 6) + 'px';
-  b.style.animationDelay = '0s';           // show immediately
-  document.body.appendChild(b);
-
-  /* auto‑remove after the 7‑second float to prevent DOM bloat */
-  setTimeout(() => b.remove(), 7000);
-}, 500);  // ↖ adjust (ms) for faster/slower spawn rate
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
   </script>
 
 </body>
